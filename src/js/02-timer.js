@@ -28,9 +28,8 @@ const options = {
     } else {
       refs.btnTimerStart.disabled = true;
       Notify.failure('Please choose a date in the future', {
+        timeout: 1500,
         width: '400px',
-        timeout: 2000,
-        closeButton: true,
       });
     }
   },
@@ -60,14 +59,12 @@ function onTimerStart() {
   timerId = setInterval(() => {
     const startTime = new Date();
     const countdown = selectedDate - startTime;
+    refs.btnTimerStart.disabled = true;
 
     if (countdown < 0) {
       clearInterval(timerId);
-      refs.btnTimerStart.disabled = true;
-
       return;
     }
-    refs.btnTimerStart.disabled = true;
     updateTimerFace(convertMs(countdown));
   }, 1_000);
 }
