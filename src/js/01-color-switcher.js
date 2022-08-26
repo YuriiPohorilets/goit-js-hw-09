@@ -3,10 +3,9 @@ const refs = {
   stop: document.querySelector('[data-stop'),
 };
 
-refs.stop.disabled = true;
-
 const INTERVAL_DURATION = 1_000;
 let timerlId = null;
+refs.stop.disabled = true;
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
